@@ -1,44 +1,48 @@
 # Prompt Library
 
-A personal collection of prompts for various use cases. Search intelligently using AI to find the perfect prompt template for your specific need.
+A personal collection of reusable prompt templates. Search and retrieve them intelligently through chat to find the perfect prompt for your specific use case.
 
 ## 🔍 How to Search for Prompts
 
-This library supports **intelligent prompt search** through chat. Instead of manually browsing files, you can describe what you need and I'll find the best matching prompt template and customize it for you.
+Use this simple format in chat:
 
-### Quick Start
-
-1. Tell me what you need to generate/write/create
-2. Reference the search instructions file
-3. Get back a customized prompt ready to use
+```
+do: "[YOUR_SPECIFIC_REQUEST]" use: SEARCH_INSTRUCTIONS.md
+```
 
 **Example:**
 ```
-I'm looking for a prompt to help with: writing a compelling email subject line for a promotional campaign
-
-Ref: SEARCH_INSTRUCTIONS.md
+do: "I need help writing a product description for an e-commerce site" use: SEARCH_INSTRUCTIONS.md
 ```
 
-### Full Details
+I will:
+1. Search all prompt templates in this repository
+2. Find the best matching template
+3. Customize it with your specific request
+4. Return the source file + justification + customized prompt
 
-See [SEARCH_INSTRUCTIONS.md](SEARCH_INSTRUCTIONS.md) for:
-- Complete request format
-- What to expect in responses
-- Tips for better results
-- Folder structure overview
+See [SEARCH_INSTRUCTIONS.md](SEARCH_INSTRUCTIONS.md) for complete details.
 
-## 📁 Library Organization
+## 📋 What You'll Get
 
-Prompts are organized by category:
-- `copywriting/` - Marketing, social media, email, product descriptions
-- `coding/` - Code generation, debugging, architecture
-- `analysis/` - Data analysis, research, summaries
-- `creative/` - Writing, brainstorming, ideation
-- `other/` - Miscellaneous prompts
+Each search result includes:
+- **Source template** - Which prompt file was used
+- **Why selected** - 1-line explanation of relevance
+- **Customized prompt** - Your new prompt with `[PLACEHOLDER: ...]` markers
+- **Ready to use** - Fill in placeholders and go
 
-## 🚀 Getting Started
+## 📁 Adding Prompts
 
-1. Browse the folders to see available prompt templates
-2. Use the [search instructions](SEARCH_INSTRUCTIONS.md) to find prompts by describing your need
-3. I'll blend the best template with your specific request
-4. Fill in any `[PLACEHOLDER: ...]` markers with your details
+Add your own prompt templates as `.md` files anywhere in this repository. Organize them however you like—the search will find all of them automatically.
+
+**Example structure:**
+```
+prompt-library/
+├── copywriting/
+│   ├── email.md
+│   └── social-media.md
+├── coding/
+│   └── debugging.md
+└── analysis/
+    └── research.md
+```
