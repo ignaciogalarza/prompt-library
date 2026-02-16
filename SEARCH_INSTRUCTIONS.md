@@ -1,14 +1,15 @@
 # Prompt Library Search Instructions
 
-## Purpose
-This file contains instructions for searching and retrieving prompts from the library in an intelligent way. When referenced in a chat request, it guides the AI to find the most relevant prompt template and blend it with your specific use case.
+## 🎯 PRIMARY GOAL (For AI Models)
+When this file is referenced, your task is to:
+1. Extract the user's specific need/request
+2. Read ALL prompt .md files from this repository's folders (copywriting/, coding/, analysis/, creative/, other/)
+3. Find the BEST matching prompt template based on relevance to their request
+4. Blend/merge the template WITH the user's specific request to create a NEW customized prompt
+5. Return: (a) source file path, (b) customized prompt with [PLACEHOLDER: ...] markers for unresolved details
 
-## How It Works
-When you need a prompt, you'll provide:
-1. **Your specific need/use case** - What you want to accomplish
-2. **Reference to this file** - Link to SEARCH_INSTRUCTIONS.md
-
-The AI will then:
+## How to Use This File
+When you reference this file in a request, ANY AI model will:
 1. Search through all prompt files in the repository
 2. Identify the best matching prompt template(s)
 3. Create a new, customized prompt that merges the template with your request
@@ -16,31 +17,51 @@ The AI will then:
 
 ## Request Format
 
-Use this format when searching:
+When you want to trigger this behavior, simply use:
 
+```
+do: "[YOUR_SPECIFIC_REQUEST]" use: SEARCH_INSTRUCTIONS.md
+```
+
+Or more explicitly:
 ```
 I'm looking for a prompt to help with: [YOUR_SPECIFIC_NEED]
 
 Ref: SEARCH_INSTRUCTIONS.md
 ```
 
-**Example:**
+**Examples:**
 ```
-I'm looking for a prompt to help with: writing engaging social media captions for a fashion brand
+do: "writing engaging social media captions for a fashion brand" use: SEARCH_INSTRUCTIONS.md
+```
 
-Ref: SEARCH_INSTRUCTIONS.md
 ```
+do: "creating a debugging strategy for production errors" use: SEARCH_INSTRUCTIONS.md
+```
+
+**The AI will immediately understand:** Search the repository, find the best matching prompt file, customize it with this request, and return both the source and the customized version.
+
+## Step-by-Step Algorithm (For AI Models)
+
+When this file is referenced, execute this process:
+
+1. **Parse Request** - Extract the user's specific need from their message
+2. **List Prompts** - Read all `.md` files in: `copywriting/`, `coding/`, `analysis/`, `creative/`, `other/`
+3. **Match** - Find the best matching prompt by semantic relevance to the user's request
+4. **Blend** - Merge the template prompt with the user's specific request to create a customized version
+5. **Identify Gaps** - Mark any uncertain/missing details with `[PLACEHOLDER: description]` format
+6. **Return** - Show source file + customized prompt
 
 ## What You'll Receive
 
 The AI will respond with:
 
-1. **Source Template** - The original prompt file found in the library
-2. **Customized Prompt** - A new prompt that:
+1. **Source Template** - The path to the original prompt file found (e.g., `copywriting/social-media.md`)
+2. **Customized Prompt** - A NEW prompt that:
    - Blends the template with your specific use case
-   - Is tailored to your exact need
-   - Includes placeholder markers for details you need to fill in
-3. **Placeholders** - `[PLACEHOLDER: description]` tags for any unresolved questions or customizations needed
+   - Is directly tailored to your exact need
+   - Includes `[PLACEHOLDER: ...]` markers for any unresolved questions
+3. **Ready to Use** - Copy the customized prompt and fill in the placeholders with your details
 
 **Example Response:**
 ```
